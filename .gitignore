@@ -1,0 +1,38 @@
+# 编译输出目录
+target
+
+# Cargo.lock 通常不提交到库项目中，但建议提交到二进制项目中
+# 如果你开发的是库，取消下面这行的注释
+# Cargo.lock
+
+# 这些是基准测试和性能分析工具生成的文件
+perf.data
+perf.data.old
+*.prof*
+
+# IDE 和编辑器文件
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 操作系统生成的文件
+Thumbs.db
+Desktop.ini
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 构建工具
+.gradle/
+build/
+out/
+dist/
+
+# 其他
+*.bk
+*.orig
