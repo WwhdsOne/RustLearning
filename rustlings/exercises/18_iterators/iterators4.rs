@@ -1,15 +1,16 @@
 fn factorial(num: u64) -> u64 {
-    // TODO: Complete this function to return the factorial of `num` which is
-    // defined as `1 * 2 * 3 * … * num`.
-    // https://en.wikipedia.org/wiki/Factorial
+    //TODO: 完成此函数以返回 `num` 的阶乘，即
+    //定义为 `1 *2 *3 *... *num`。
+    //https://en.wikipedia.org/wiki/Factorial
     //
-    // Do not use:
-    // - early returns (using the `return` keyword explicitly)
-    // Try not to use:
-    // - imperative style loops (for/while)
-    // - additional variables
-    // For an extra challenge, don't use:
-    // - recursion
+    //不要使用：
+    //-提前返回（显式使用 `return` 关键字）
+    //尽量不要使用：
+    //-命令式循环（for/while）
+    //-附加变量
+    //对于额外的挑战，不要使用：
+    //-递归
+    (1..=num).product()
 }
 
 fn main() {

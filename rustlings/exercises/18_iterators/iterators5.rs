@@ -1,8 +1,8 @@
-// Let's define a simple model to track Rustlings' exercise progress. Progress
-// will be modelled using a hash map. The name of the exercise is the key and
-// the progress is the value. Two counting functions were created to count the
-// number of exercises with a given progress. Recreate this counting
-// functionality using iterators. Try to not use imperative loops (for/while).
+//让我们定义一个简单的模型来跟踪 Rustlings 的锻炼进度。进展
+//将使用哈希映射进行建模。练习的名称是关键
+//进度就是值。创建了两个计数函数来计算
+//给定进度的练习数量。重新创建此计数
+//使用迭代器的功能。尽量不要使用命令式循环（for/while）。
 
 use std::collections::HashMap;
 
@@ -14,24 +14,23 @@ enum Progress {
 }
 
 fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
-    let mut count = 0;
-    for val in map.values() {
-        if *val == value {
+    let mut count: usize = 0;
+    for ele in map {
+        if *ele.1 == value {
             count += 1;
         }
     }
     count
 }
 
-// TODO: Implement the functionality of `count_for` but with an iterator instead
-// of a `for` loop.
+//TODO: 实现 `count_for` 的功能，但使用迭代器
+//`for` 循环。
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
-    // `map` is a hash map with `String` keys and `Progress` values.
-    // map = { "variables1": Complete, "from_str": None, … }
+    map.values().filter(|&progress| *progress == value).count()
 }
 
 fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
-    let mut count = 0;
+    let mut count: usize = 0;
     for map in collection {
         for val in map.values() {
             if *val == value {
@@ -45,9 +44,11 @@ fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progres
 // TODO: Implement the functionality of `count_collection_for` but with an
 // iterator instead of a `for` loop.
 fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
-    // `collection` is a slice of hash maps.
-    // collection = [{ "variables1": Complete, "from_str": None, … },
-    //               { "variables2": Complete, … }, … ]
+    collection
+        .iter()
+        .flat_map(|map| map.values())
+        .filter(|&progress| *progress == value)
+        .count()
 }
 
 fn main() {
