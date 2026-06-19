@@ -1,21 +1,21 @@
-// In this exercise, we are given a `Vec` of `u32` called `numbers` with values
-// ranging from 0 to 99. We would like to use this set of numbers within 8
-// different threads simultaneously. Each thread is going to get the sum of
-// every eighth value with an offset.
+//在本练习中，我们得到一个名为“numbers”的“u32”的“Vec”，其中包含值
+//范围从0到99。我们想使用8以内的这组数字
+//不同线程同时进行。每个线程都会得到总和
+//每八个值都有一个偏移量。
 //
-// The first thread (offset 0), will sum 0, 8, 16, …
-// The second thread (offset 1), will sum 1, 9, 17, …
-// The third thread (offset 2), will sum 2, 10, 18, …
-// …
-// The eighth thread (offset 7), will sum 7, 15, 23, …
+//第一个线程（偏移量 0）将对 0, 8, 16, … 求和
+//第二个线程（偏移量 1）将对 1, 9, 17, … 求和
+//第三个线程（偏移量 2）将对 2, 10, 18, … 求和
+//…
+//第八个线程（偏移量 7）将对 7, 15, 23, … 求和
 //
-// Each thread should own a reference-counting pointer to the vector of
-// numbers. But `Rc` isn't thread-safe. Therefore, we need to use `Arc`.
+//每个线程应该拥有一个指向向量的引用计数指针
+//数字。但 `Rc` 不是线程安全的。因此，我们需要使用“Arc”。
 //
-// Don't get distracted by how threads are spawned and joined. We will practice
-// that later in the exercises about threads.
+//不要因为线程的生成和连接方式而分心。我们将练习
+//稍后在有关线程的练习中。
 
-// Don't change the lines below.
+//不要更改下面的行。
 #![forbid(unused_imports)]
 use std::{sync::Arc, thread};
 
