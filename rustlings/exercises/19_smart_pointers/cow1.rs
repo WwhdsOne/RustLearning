@@ -1,7 +1,7 @@
-// This exercise explores the `Cow` (Clone-On-Write) smart pointer. It can
-// enclose and provide immutable access to borrowed data and clone the data
-// lazily when mutation or ownership is required. The type is designed to work
-// with general borrowed data via the `Borrow` trait.
+//本练习探讨“Cow”（写入时克隆）智能指针。它可以
+//封装并提供对借用数据的不可变访问并克隆数据
+//当需要突变或所有权时，会惰性地执行。该类型旨在工作
+//通过“Borrow”特征借用一般数据。
 
 use std::borrow::Cow;
 
