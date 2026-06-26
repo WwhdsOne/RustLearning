@@ -1,7 +1,7 @@
-// This program spawns multiple threads that each runs for at least 250ms, and
-// each thread returns how much time it took to complete. The program should
-// wait until all the spawned threads have finished and should collect their
-// return values into a vector.
+//该程序生成多个线程，每个线程运行至少 250 毫秒，并且
+//每个线程返回完成所需的时间。该程序应该
+//等待所有生成的线程完成并收集它们的线程
+//将值返回到向量中。
 
 use std::{
     thread,
@@ -23,6 +23,7 @@ fn main() {
     let mut results = Vec::new();
     for handle in handles {
         // TODO: Collect the results of all threads into the `results` vector.
+        results.push(handle.join().unwrap());
         // Use the `JoinHandle` struct which is returned by `thread::spawn`.
     }
 
