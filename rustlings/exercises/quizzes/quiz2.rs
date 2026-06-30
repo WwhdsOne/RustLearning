@@ -1,21 +1,21 @@
-// This is a quiz for the following sections:
-// - Strings
-// - Vecs
-// - Move semantics
-// - Modules
-// - Enums
+//这是针对以下部分的测验：
+//-字符串
+//-向量
+//-移动语义
+//-模块
+//-枚举
 //
-// Let's build a little machine in the form of a function. As input, we're going
-// to give a list of strings and commands. These commands determine what action
-// is going to be applied to the string. It can either be:
-// - Uppercase the string
-// - Trim the string
-// - Append "bar" to the string a specified amount of times
+//让我们以函数的形式构建一个小机器。作为输入，我们将
+//给出字符串和命令的列表。这些命令决定执行什么操作
+//将应用于字符串。它可以是：
+//-大写字符串
+//-修剪字符串
+//-将“bar”附加到字符串指定的次数
 //
-// The exact form of this will be:
-// - The input is going to be a Vector of 2-length tuples,
-//   the first element is the string, the second one is the command.
-// - The output element is going to be a vector of strings.
+//其具体形式为：
+//-输入将是 2 长度元组的向量，
+//第一个元素是字符串，第二个元素是命令。
+//-输出元素将是一个字符串向量。
 
 enum Command {
     Uppercase,
@@ -27,7 +27,24 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function as described above.
-    // pub fn transformer(input: ???) -> ??? { ??? }
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+        let mut v: Vec<String> = Vec::new();
+        for (s, cmd) in input {
+            let result = match cmd {
+                Command::Uppercase => s.to_uppercase(),
+                Command::Trim => s.trim().to_string(),
+                Command::Append(size) => {
+                    let mut origin = s;
+                    for _ in 0..size {
+                        origin.push_str("bar");
+                    }
+                    origin
+                }
+            };
+            v.push(result);
+        }
+        v
+    }
 }
 
 fn main() {
@@ -37,7 +54,7 @@ fn main() {
 #[cfg(test)]
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
-    // use ???;
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]

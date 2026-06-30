@@ -2,7 +2,7 @@
 // 如果它能解释问题出在哪里，而不是仅仅返回 `None`，那就更好了。
 // 幸运的是，Rust 有一个与 `Option` 类似的构造，可以用来表达错误情况。
 // 请修改函数签名和函数体，使其返回 `Result<String, String>` 而不是 `Option<String>`。
-fn generate_nametag_text(name: String) -> Result<String,String> {
+fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.is_empty() {
         // Empty names aren't allowed
         Err("Empty names aren't allowed".to_string())

@@ -5,7 +5,7 @@
 // your scope. Bonus style points if you can do it with one line!
 // use ???;
 
-use std::time::{SystemTime,UNIX_EPOCH};
+use std::time::{SystemTime, UNIX_EPOCH};
 
 fn main() {
     match SystemTime::now().duration_since(UNIX_EPOCH) {
